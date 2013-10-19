@@ -1,0 +1,3 @@
+# Treat project file as binary so it won't get diffed pointlessly.
+# It will show as a conflict even if it has not changed.
+*.pbxproj -crlf -diff -merge

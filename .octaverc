@@ -1,0 +1,31 @@
+% red prompt
+PS1 ("\\[\\033[1;31m\\]\\s:\\#> \\[\\033[0m\\]")
+
+% Gnuplot was the default, we don't want it
+graphics_toolkit('fltk');
+
+% fltk bug on Macos does not allow resizing
+% force a bigger default on 2nd screen
+% set(gcf, "position", [-1400 200 1080, 640]);
+
+% Emacs is the default editor, we want vim
+edit mode async
+edit editor "mvim %s"
+edit email "peter@crozier.com"
+edit author "Peter Crozier"
+
+% local .m files are here
+edit home "~/Projects/octave"
+
+
+function figright()
+% open plot window on RH screen
+	figure;
+	set(gcf, "position", [100 100 1080, 640]);
+endfunction
+
+function figleft()
+% open plot window on LH screen
+	figure;
+	set(gcf, "position", [-1400 200 1080, 640]);
+endfunction

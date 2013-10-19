@@ -1,0 +1,16 @@
+# vim swap file
+.*.swp
+tags
+# nohup logfile
+nohup.out
+
+# Xcode stuff, keep the prefix pch file
+build/
+*.mode1v3
+*.pbxuser
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# MAC OS noise
+.DS_Store
+.com.apple.*
