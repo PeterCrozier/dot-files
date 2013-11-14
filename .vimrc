@@ -24,6 +24,9 @@ endif
 	" CTRL-C to copy in visual mode
 	vmap <C-C>	"*y
 
+" map cmd F13 to run Dash via the Dash.vim plugin
+nnoremap <D-F13> :Dash<CR>
+
 " turn on syntax coloring and filetype detection
 syntax on
 filetype on
