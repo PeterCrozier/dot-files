@@ -49,6 +49,9 @@ export set JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF8"
 # 10.9 bug in Octave
 alias octave='LC_CTYPE="en_US.UTF-8" /usr/local/bin/octave'
 
+# Sage command line
+alias sage="/Applications/Sage-5.12-OSX-64bit-10.8.app/Contents/Resources/sage/sage"
+
 # coffeelint config file
 export COFFEELINT_CONFIG=~/.coffeelint
 
