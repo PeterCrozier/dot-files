@@ -25,7 +25,10 @@ endif
 	vmap <C-C>	"*y
 
 " map cmd F13 to run Dash via the Dash.vim plugin
-nnoremap <D-F13> :Dash<CR>
+:nnoremap <D-F13> :Dash<CR>
+
+" map \m to run Marked on the current document
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<CR>
 
 " turn on syntax coloring and filetype detection
 syntax on
