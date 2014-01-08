@@ -25,10 +25,10 @@ endif
 	vmap <C-C>	"*y
 
 " map cmd F13 to run Dash via the Dash.vim plugin
-:nnoremap <D-F13> :Dash<CR>
+:nnoremap <D-F13> :Dash<cr>
 
 " map \m to run Marked on the current document
-:nnoremap <leader>m :silent !open -a Marked.app '%:p'<CR>
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
 " turn on syntax coloring and filetype detection
 syntax on
@@ -60,7 +60,7 @@ elseif &filetype == "scala"
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
 endif
 endfunction
-autocmd BufEnter * call SetTabs ()
+autocmd BufEnter * call SetTabs()
 
 " CoffeeScript override, ftplugin sets expandtab and shiftwidth
 autocmd BufRead,BufNewFile *.coffee setlocal ts=2
@@ -71,11 +71,15 @@ autocmd BufRead,BufNewFile *.coffee setlocal ts=2
 let c_space_errors=1
 
 " Octave/Matlab syntax overriding Objective C
-autocmd BufRead,BufNewFile *.m,*.oct setlocal ts=4 shiftwidth=4
+function MatTabs ()
+if &filetype == "matlab"
+	set ts=4 shiftwidth=4 expandtab
+endif
+endfunction
+autocmd BufRead,BufNewFile *.m,*.oct call MatTabs ()
 
 " Native markdown support does not recognize .md which is owned by modula2
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-
 
 " Unicode editing
 if has("multi_byte")
@@ -89,6 +93,7 @@ endif
 " these are common dyslexic misspellings
 iab teh the
 iab statment statement
+iab mbfp \mathbf{P}
 
 " Restore cursor position in the irb vim gem. XXX Do we need this?
 if has("autocmd")
