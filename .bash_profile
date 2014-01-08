@@ -29,10 +29,9 @@ alias status="git status"
 
 alias sha1="openssl sha1"
 
-export WINE=/Applications/Wine.app/Contents/MacOS/Wine
-alias kclient="$WINE /Applications/ADP/kclient.exe"
-alias spice="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/LTC/LTspiceIV/scad3.exe"
-alias xctu="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/Digi/XCTU/X-CTU.exe"
+#export WINE=/Applications/Wine.app/Contents/MacOS/Wine
+#alias spice="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/LTC/LTspiceIV/scad3.exe"
+#alias xctu="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/Digi/XCTU/X-CTU.exe"
 
 #export GOROOT=$HOME/go
 #export GOBIN=$GOROOT/bin
@@ -63,5 +62,8 @@ set -o vi
 # look up a directory in cd cmd if not in this one
 export CDPATH=".:.."
 
-
+# Enable ruby version manager, pollutes env with functions
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# restore backspace key in Safari
+#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool YES
