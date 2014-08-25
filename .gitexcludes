@@ -4,6 +4,9 @@ tags
 # nohup logfile
 nohup.out
 
+# python compiled files
+*.pyc
+
 # Xcode stuff, keep the prefix pch file
 build/
 *.mode1v3
