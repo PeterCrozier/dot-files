@@ -33,12 +33,6 @@ alias sha1="openssl sha1"
 #alias spice="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/LTC/LTspiceIV/scad3.exe"
 #alias xctu="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/Digi/XCTU/X-CTU.exe"
 
-#export GOROOT=$HOME/go
-#export GOBIN=$GOROOT/bin
-#export GOOS=darwin
-#export GOARCH=amd64
-#export PATH="$PATH:$GOBIN:/Library/goodies/OracleClient/instantclient_10_2"
-
 # Make ls use colors to display attributes.  Use defaults.
 export CLICOLOR=true
 
@@ -49,15 +43,23 @@ export set JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF8"
 alias octave='LC_CTYPE="en_US.UTF-8" /usr/local/bin/octave'
 
 # Sage command line
-alias sage="/Applications/Sage-5.12-OSX-64bit-10.8.app/Contents/Resources/sage/sage"
+alias sage="/Applications/Sage-6.1.1.app/Contents/Resources/sage/sage"
 
 # coffeelint config file
 export COFFEELINT_CONFIG=~/.coffeelint
 
+# git status without unstaged files
+alias gsu="git status -uno"
+
 # enable vi edit mode on command line
 export EDITOR=vim
-alias vi=mvim
 set -o vi
+if [ "$SSH_CONNECTION" ]
+then
+	alias vi=vim
+else
+	alias vi=mvim
+fi
 
 # look up a directory in cd cmd if not in this one
 export CDPATH=".:.."
@@ -67,3 +69,15 @@ export CDPATH=".:.."
 
 # restore backspace key in Safari
 #defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool YES
+
+# MIT 6.004 simulator; assumes run from the 6004 directory
+alias jsim="java -jar jsim.jar -Xms8m -Xmx32m -reporterrors"
+
+# added by Anaconda 1.9.1 installer
+export PATH="/Users/pjc/anaconda/bin:$PATH"
+
+# start ipython which crashes if not in US locale
+alias ipy="~/Projects/ipython/ipython.sh"
+
+# access swift compiler, assume CL tools set to XCode 6 by xcode-select
+alias swift="xcrun swift"
