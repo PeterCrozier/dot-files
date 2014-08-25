@@ -58,6 +58,10 @@ elseif &filetype == "haml"
 elseif &filetype == "scala"
 	" Scala specifics
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
+elseif &filetype == "swift"
+	" Swift specifics, ts defaults to 4
+	" using pathogen bundle: https://github.com/Keithbsmiley/swift.vim
+	set ts=8
 endif
 endfunction
 autocmd BufEnter * call SetTabs()
@@ -81,6 +85,12 @@ autocmd BufRead,BufNewFile *.m,*.oct call MatTabs ()
 " Native markdown support does not recognize .md which is owned by modula2
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+" MIT 6.004 jsim simulator netlist format, consider same as spice
+autocmd BufRead,BufNewFile *.jsim set filetype=spice
+
+" verilog header files
+autocmd BufRead,BufNewFile *.vh set filetype=verilog
+
 " Unicode editing
 if has("multi_byte")
      set encoding=utf-8
@@ -93,7 +103,6 @@ endif
 " these are common dyslexic misspellings
 iab teh the
 iab statment statement
-iab mbfp \mathbf{P}
 
 " Restore cursor position in the irb vim gem. XXX Do we need this?
 if has("autocmd")
