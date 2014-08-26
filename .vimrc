@@ -59,9 +59,9 @@ elseif &filetype == "scala"
 	" Scala specifics
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
 elseif &filetype == "swift"
-	" Swift specifics, ts defaults to 4
+	" Swift specifics, defaults to 2 soft spaces, use hard tabs
 	" using pathogen bundle: https://github.com/Keithbsmiley/swift.vim
-	set ts=8
+	set ts=8 shiftwidth=0 softtabstop=0 nosmarttab noexpandtab
 endif
 endfunction
 autocmd BufEnter * call SetTabs()
