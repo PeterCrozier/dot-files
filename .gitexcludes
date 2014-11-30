@@ -13,6 +13,7 @@ build/
 *.pbxuser
 *.xcodeproj/project.xcworkspace/
 *.xcodeproj/xcuserdata/
+mogen/
 
 # MAC OS noise
 .DS_Store
