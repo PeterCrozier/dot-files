@@ -27,9 +27,6 @@ endif
 " map cmd F13 to run Dash via the Dash.vim plugin
 :nnoremap <D-F13> :Dash<cr>
 
-" map \m to run Marked on the current document
-:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
-
 " turn on syntax coloring and filetype detection
 syntax on
 filetype on
@@ -115,3 +112,6 @@ endif
 
 " support ctags if available
 set tags=./tags;$HOME
+
+" run clang-format via CTRL-K
+map <C-K> :pyf ~/Projects/ClangFormat/llvm/tools/clang/tools/clang-format/clang-format.py<cr><cr>
