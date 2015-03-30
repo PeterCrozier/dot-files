@@ -3,8 +3,10 @@
 "
 set anti gfn=Monaco:h13
 set columns=132 lines=55
+if &diff
+	let &columns = 240
+endif
 set go-=T
-"winpos 80 50
 
 highlight Comment guifg=DarkGreen ctermfg=DarkGreen
 highlight cComment guifg=DarkGreen ctermfg=DarkGreen
