@@ -26,7 +26,8 @@ alias lsreregister="lsregister -kill -r -f -all system,local,user"
 # defaults write com.apple.finder AppleShowAllFiles TRUE
 
 alias status="git status"
-
+alias log='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
+alias gdiff="git difftool --noprompt --extcmd='mvim -d --nofork'"
 alias sha1="openssl sha1"
 
 #export WINE=/Applications/Wine.app/Contents/MacOS/Wine
@@ -66,17 +67,19 @@ fi
 # look up a directory in cd cmd if not in this one
 export CDPATH=".:.."
 
+# added by Anaconda 1.9.1 installer
+export PATH="/Users/pjc/anaconda/bin:$PATH"
+
 # Enable ruby version manager, pollutes env with functions
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Ruby tags, see gem
+alias rtags="ripper-tags -R"
 
 # restore backspace key in Safari
 #defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool YES
 
 # MIT 6.004 simulator; assumes run from the 6004 directory
 alias jsim="java -jar jsim.jar -Xms8m -Xmx32m -reporterrors"
-
-# added by Anaconda 1.9.1 installer
-export PATH="/Users/pjc/anaconda/bin:$PATH"
 
 # start ipython which crashes if not in US locale
 alias ipy="~/Projects/ipython/ipython.sh"
@@ -95,3 +98,6 @@ alias unguard="xattr -d com.apple.quarantine"
 
 # simple HTTP server for a directory
 alias httpserver="python -m SimpleHTTPServer 8000"
+
+# run Arduino IDE from command line
+alias arduino="/Applications/Arduino160.app/Contents/MacOS/JavaApplicationStub"
