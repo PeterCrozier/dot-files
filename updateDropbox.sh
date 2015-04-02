@@ -15,4 +15,4 @@ EOT`
 DROPBOX=~/Dropbox/dotfiles
 TIMESTAMP=${DROPBOX}/timestamp
 find $list -newer $TIMESTAMP -exec cp -p {} $DROPBOX \;
-touch $TIMESTAMP
+date >$TIMESTAMP
