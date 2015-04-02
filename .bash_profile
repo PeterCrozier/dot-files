@@ -59,6 +59,7 @@ export EDITOR=vim
 set -o vi
 if [ "$SSH_CONNECTION" ]
 then
+	export PS1="`tput setaf 4`@`hostname``tput sgr0` $PS1"
 	alias vi=vim
 else
 	alias vi=mvim
