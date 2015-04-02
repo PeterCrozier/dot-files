@@ -25,9 +25,25 @@ alias lsreregister="lsregister -kill -r -f -all system,local,user"
 # force finder to show hidden files, needs a restart so pointless here
 # defaults write com.apple.finder AppleShowAllFiles TRUE
 
+# When running MacVim from a terminal, nofork, return focus to terminal
+export GUI_EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+# enable vi edit mode on command line
+set -o vi
+# run MacVim in gui mode where possible
+if [ "$SSH_CONNECTION" ]
+then
+	# SSL session - must be text mode
+	export PS1="`tput setaf 4`@`hostname``tput sgr0` $PS1"
+	export EDITOR=vim
+	alias vi=vim
+else
+	export EDITOR=mvim
+	alias vi="$GUI_EDITOR"
+fi
+
 alias status="git status"
 alias log='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
-alias gdiff="git difftool --noprompt --extcmd='mvim -d --nofork'"
+alias gdiff="git difftool --noprompt --extcmd='$GUI_EDITOR -d'"
 alias sha1="openssl sha1"
 
 #export WINE=/Applications/Wine.app/Contents/MacOS/Wine
@@ -54,16 +70,6 @@ export COFFEELINT_CONFIG=~/.coffeelint
 # git status without unstaged files
 alias gsu="git status -uno"
 
-# enable vi edit mode on command line
-export EDITOR=vim
-set -o vi
-if [ "$SSH_CONNECTION" ]
-then
-	export PS1="`tput setaf 4`@`hostname``tput sgr0` $PS1"
-	alias vi=vim
-else
-	alias vi=mvim
-fi
 
 # look up a directory in cd cmd if not in this one
 export CDPATH=".:.."
