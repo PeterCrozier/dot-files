@@ -25,8 +25,8 @@ alias lsreregister="lsregister -kill -r -f -all system,local,user"
 # force finder to show hidden files, needs a restart so pointless here
 # defaults write com.apple.finder AppleShowAllFiles TRUE
 
-# When running MacVim from a terminal, nofork, return focus to terminal
-export GUI_EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+# When running MacVim from a terminal, return focus to terminal
+export GUI_EDITOR='mvim -c "au VimLeave * !open -a Terminal"'
 # enable vi edit mode on command line
 set -o vi
 # run MacVim in gui mode where possible
@@ -43,7 +43,7 @@ fi
 
 alias status="git status"
 alias log='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
-alias gdiff="git difftool --noprompt --extcmd='$GUI_EDITOR -d'"
+alias gdiff="git difftool --noprompt --extcmd='$GUI_EDITOR -f -d'"
 alias sha1="openssl sha1"
 
 #export WINE=/Applications/Wine.app/Contents/MacOS/Wine
