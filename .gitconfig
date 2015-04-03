@@ -1,16 +1,18 @@
 [core]
-	excludesfile = /Users/pjc/.gitexcludes
+	excludesfile = ~/.gitexcludes
 	editor = vim
-[merge]
-	tool = vimdiff
 [user]
 	email = peter@crozier.com
 	name = pjc
 [color]
 	ui = auto
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[push]
+	default = simple
+[alias]
+	last = log -1 HEAD
+	unstage = reset HEAD --
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[merge]
+	tool = gvimdiff
