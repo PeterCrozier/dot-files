@@ -38,20 +38,18 @@ filetype plugin indent on
 function SetTabs ()
 " These tests have to be in an au command function for some reason
 if &filetype == "c"
-	" C specifics
-	set cindent
-	set fo=croq
-	let c_space_errors=1
-	set comments=sl:/*,mb:**,ex:*/
+	" C specifics, default fo=croql
+	set formatoptions-=o	" don't autocomment new lines added with o or O
+	set formatoptions+=j	" join comments sensibly
+	set comments=sl:/*,mb:**,ex:*/,:// 
 elseif &filetype == "ruby"
 	" Ruby specifics
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
-	set ruler
-	set cinwords=if,else,while,do,for,switch,case
+	set formatoptions-=o	" don't autocomment new lines added with o or O
+	set formatoptions+=j	" join comments sensibly
 elseif &filetype == "haml"
 	" HAML specifics
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
-	set ruler
 elseif &filetype == "scala"
 	" Scala specifics
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
@@ -59,6 +57,11 @@ elseif &filetype == "swift"
 	" Swift specifics, defaults to 2 soft spaces, use hard tabs
 	" using pathogen bundle: https://github.com/Keithbsmiley/swift.vim
 	set ts=8 shiftwidth=0 softtabstop=0 nosmarttab noexpandtab
+elseif &filetype == "verilog"
+	" the built-in syntax wraps at 78
+	set textwidth=0
+	set formatoptions+=j	" join comments sensibly
+	set comments=sl:/*,mb:**,ex:*/,:// 
 endif
 endfunction
 autocmd BufEnter * call SetTabs()
@@ -68,8 +71,12 @@ autocmd BufRead,BufNewFile *.coffee setlocal ts=2
 " show coffee errors from make
 " autocmd QuickFixCmdPost * nested cwindow 
 
-" highlight trailing spaces in C like languages
+" highlight trailing spaces in Ruby and C like languages
 let c_space_errors=1
+let ruby_space_errors=1
+
+" use last line for position
+set ruler
 
 " Octave/Matlab syntax overriding Objective C
 function MatTabs ()
