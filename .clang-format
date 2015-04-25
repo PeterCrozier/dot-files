@@ -1,0 +1,10 @@
+---
+BasedOnStyle:  LLVM
+# overrides
+#Language:        Cpp
+ColumnLimit:     0
+IndentWidth:     8
+UseTab:          Always
+BreakBeforeTernaryOperators: false
+BreakBeforeBraces: Linux
+...

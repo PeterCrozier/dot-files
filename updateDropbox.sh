@@ -1,6 +1,7 @@
 # files to copy, not including the .git repo
 list=`cat <<EOT
 .bash_profile
+.clang-format
 .gemrc
 .gitattributes
 .gitconfig

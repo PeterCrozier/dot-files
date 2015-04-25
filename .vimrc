@@ -42,6 +42,12 @@ if &filetype == "c"
 	set formatoptions-=o	" don't autocomment new lines added with o or O
 	set formatoptions+=j	" join comments sensibly
 	set comments=sl:/*,mb:**,ex:*/,:// 
+elseif &filetype == "arduino"
+	" C specifics, default fo=croql
+	set formatoptions-=o	" don't autocomment new lines added with o or O
+	set formatoptions+=j	" join comments sensibly
+	set comments=sl:/*,mb:**,ex:*/,:// 
+	set cindent
 elseif &filetype == "ruby"
 	" Ruby specifics
 	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
@@ -121,7 +127,7 @@ endif
 set tags=./tags;$HOME
 
 " run clang-format via CTRL-K
-map <C-K> :pyf ~/Projects/ClangFormat/llvm/tools/clang/tools/clang-format/clang-format.py<cr><cr>
+map <C-K> :pyf /usr/local/bin/clang-format.py<cr><cr>
 
 " syntastic flags
 "set statusline+=%#warningmsg#
