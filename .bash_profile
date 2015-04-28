@@ -107,4 +107,4 @@ alias unguard="xattr -d com.apple.quarantine"
 alias httpserver="python -m SimpleHTTPServer 8000"
 
 # run Arduino IDE from command line
-alias arduino="/Applications/Arduino160.app/Contents/MacOS/JavaApplicationStub"
+alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
