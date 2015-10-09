@@ -42,8 +42,14 @@ else
 fi
 
 alias status="git status"
+# commit log showing files and summary of changes
 alias log='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
+# GUI diff with last commit
 alias gdiff="git difftool --noprompt --extcmd='$GUI_EDITOR -f -d'"
+# show location of the top-level repo for current git dir
+alias gshow="git rev-parse --show-toplevel"
+
+# compute a SHA1 hash
 alias sha1="openssl sha1"
 
 #export WINE=/Applications/Wine.app/Contents/MacOS/Wine
@@ -72,13 +78,14 @@ alias gsu="git status -uno"
 
 
 # look up a directory in cd cmd if not in this one
-export CDPATH=".:.."
+export CDPATH=".:..:~/Projects"
 
 # added by Anaconda 1.9.1 installer
 export PATH="/Users/pjc/anaconda/bin:$PATH"
 
 # Enable ruby version manager, pollutes env with functions
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 # Ruby tags, see gem
 alias rtags="ripper-tags -R"
 
@@ -108,3 +115,9 @@ alias httpserver="python -m SimpleHTTPServer 8000"
 
 # run Arduino IDE from command line
 alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
+
+# equivalent of Linux command
+alias lsusb="system_profiler SPUSBDataType"
+
+# manage/list xcode simulators
+alias simctl="xcrun simctl"
