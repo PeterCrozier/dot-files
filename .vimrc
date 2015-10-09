@@ -42,11 +42,13 @@ if &filetype == "c"
 	set formatoptions-=o	" don't autocomment new lines added with o or O
 	set formatoptions+=j	" join comments sensibly
 	set comments=sl:/*,mb:**,ex:*/,:// 
+	set commentstring=//\	%s
 elseif &filetype == "arduino"
 	" C specifics, default fo=croql
 	set formatoptions-=o	" don't autocomment new lines added with o or O
 	set formatoptions+=j	" join comments sensibly
 	set comments=sl:/*,mb:**,ex:*/,:// 
+	set commentstring=//\	%s
 	set cindent
 elseif &filetype == "ruby"
 	" Ruby specifics
@@ -63,17 +65,19 @@ elseif &filetype == "swift"
 	" Swift specifics, defaults to 2 soft spaces, use hard tabs
 	" using pathogen bundle: https://github.com/Keithbsmiley/swift.vim
 	set ts=8 shiftwidth=0 softtabstop=0 nosmarttab noexpandtab
+	set commentstring=//\	%s
 elseif &filetype == "verilog"
 	" the built-in syntax wraps at 78
 	set textwidth=0
 	set formatoptions+=j	" join comments sensibly
 	set comments=sl:/*,mb:**,ex:*/,:// 
+	set commentstring=//\	%s
 endif
 endfunction
 autocmd BufEnter * call SetTabs()
 
 " CoffeeScript override, ftplugin sets expandtab and shiftwidth
-autocmd BufRead,BufNewFile *.coffee setlocal ts=2
+autocmd BufRead,BufNewFile *.coffee setlocal expandtab smarttab shiftwidth=2 ts=2
 " show coffee errors from make
 " autocmd QuickFixCmdPost * nested cwindow 
 
@@ -134,7 +138,7 @@ map <C-K> :pyf /usr/local/bin/clang-format.py<cr><cr>
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
