@@ -15,6 +15,10 @@ build/
 *.xcodeproj/xcuserdata/
 mogen/
 
+# Cocoapods
+Pods/
+Podfile.lock
+
 # MAC OS noise
 .DS_Store
 .com.apple.*
