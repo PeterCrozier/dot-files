@@ -42,6 +42,9 @@ else
 	alias vi="$GUI_EDITOR"
 fi
 
+# no longer need these and this script is sourced
+unset RED BLU GRN RST
+
 # shorten
 alias gs="git status"
 # git status without unstaged files
