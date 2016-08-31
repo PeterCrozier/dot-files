@@ -6,7 +6,8 @@ require 'interactive_editor'
 # using ed will invoke MacVim in an async window
 ENV['EDITOR'] = "mvim"
 
-# syntax colouring
+# Syntax colouring and tab autocomplete in irb using wirble
+# install with: sudo gem install wirble
 begin
   # load wirble
   require 'wirble'
