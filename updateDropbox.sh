@@ -12,6 +12,7 @@ list=`cat <<EOT
 .pythonrc.py
 .sqliterc
 .vimrc
+.lldbinit-Xcode
 EOT`
 DROPBOX=~/Dropbox/dotfiles
 TIMESTAMP=${DROPBOX}/timestamp
