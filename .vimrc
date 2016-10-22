@@ -4,6 +4,8 @@
 set autoindent
 set history=10
 
+" search options
+set ignorecase smartcase
 
 " make default buffer same as clipboard
 set clipboard+=unnamed
@@ -32,6 +34,7 @@ syntax on
 filetype on
 
 " pathogen support
+" Run :Helptags to add local help docs from ~/.vim/bundle if you add/change any plugins
 execute pathogen#infect()
 filetype plugin indent on
 
@@ -150,3 +153,10 @@ let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+" ultisnips snippet library
+let g:UltiSnipsExpandTrigger="<C-A>"
+let g:UltiSnipsListSnippets="<C-L>"
+let g:UltiSnipsJumpForwardTrigger="<C-B>"
+let g:UltiSnipsJumpBackwardTrigger="<C-Z>"
+
