@@ -36,42 +36,44 @@ execute pathogen#infect()
 filetype plugin indent on
 
 function SetTabs ()
-" These tests have to be in an au command function for some reason
+" These tests have to be in an au command function called per buffer/window
 if &filetype == "c"
 	" C specifics, default fo=croql
-	set formatoptions-=o	" don't autocomment new lines added with o or O
-	set formatoptions+=j	" join comments sensibly
-	set comments=sl:/*,mb:**,ex:*/,:// 
-	set commentstring=//\	%s
+	setlocal formatoptions-=o	" don't autocomment new lines added with o or O
+	setlocal formatoptions+=j	" join comments sensibly
+	setlocal comments=sl:/*,mb:**,ex:*/,:// 
+	setlocal commentstring=//\	%s
 elseif &filetype == "arduino"
 	" C specifics, default fo=croql
-	set formatoptions-=o	" don't autocomment new lines added with o or O
-	set formatoptions+=j	" join comments sensibly
-	set comments=sl:/*,mb:**,ex:*/,:// 
-	set commentstring=//\	%s
-	set cindent
+	setlocal formatoptions-=o	" don't autocomment new lines added with o or O
+	setlocal formatoptions+=j	" join comments sensibly
+	setlocal comments=sl:/*,mb:**,ex:*/,:// 
+	setlocal commentstring=//\	%s
+	setlocal cindent
 elseif &filetype == "ruby"
 	" Ruby specifics
-	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
-	set formatoptions-=o	" don't autocomment new lines added with o or O
-	set formatoptions+=j	" join comments sensibly
+	setlocal ts=2 bs=2 shiftwidth=2 smarttab expandtab
+	setlocal formatoptions-=o	" don't autocomment new lines added with o or O
+	setlocal formatoptions+=j	" join comments sensibly
 elseif &filetype == "haml"
 	" HAML specifics
-	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
+	setlocal ts=2 bs=2 shiftwidth=2 smarttab expandtab
 elseif &filetype == "scala"
 	" Scala specifics
-	set ts=2 bs=2 shiftwidth=2 smarttab expandtab
+	setlocal ts=2 bs=2 shiftwidth=2 smarttab expandtab
 elseif &filetype == "swift"
 	" Swift specifics, defaults to 2 soft spaces, use hard tabs
 	" using pathogen bundle: https://github.com/Keithbsmiley/swift.vim
-	set ts=8 shiftwidth=0 softtabstop=0 nosmarttab noexpandtab
-	set commentstring=//\	%s
+	setlocal ts=8 shiftwidth=0 softtabstop=0 nosmarttab noexpandtab
+	setlocal commentstring=//\	%s
 elseif &filetype == "verilog"
 	" the built-in syntax wraps at 78
-	set textwidth=0
-	set formatoptions+=j	" join comments sensibly
-	set comments=sl:/*,mb:**,ex:*/,:// 
-	set commentstring=//\	%s
+	setlocal textwidth=0
+	setlocal formatoptions+=j	" join comments sensibly
+	setlocal formatoptions-=o	" don't autocomment new lines added with o or O
+	setlocal comments=sl:/*,mb:**,ex:*/,:// 
+	setlocal commentstring=//\	%s
+	setlocal cindent
 endif
 endfunction
 autocmd BufEnter * call SetTabs()
@@ -131,9 +133,15 @@ endif
 set tags=./tags;$HOME
 
 " run clang-format via CTRL-K
-map <C-K> :pyf /usr/local/bin/clang-format.py<cr><cr>
+map <C-K> :pyfile /usr/local/bin/clang-format.py<cr><cr>
+
+" fancy matching begin/end in verilog, ruby etc.
+" included as a macro in vim 6.0+
+runtime macros/matchit.vim
 
 " syntastic flags
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
