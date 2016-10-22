@@ -59,10 +59,6 @@ alias grepo="git rev-parse --show-toplevel"
 # compute a SHA1 hash
 alias sha1="openssl sha1"
 
-#export WINE=/Applications/Wine.app/Contents/MacOS/Wine
-#alias spice="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/LTC/LTspiceIV/scad3.exe"
-#alias xctu="open /Users/pjc/Wine\ Files/drive_c/Program\ Files/Digi/XCTU/X-CTU.exe"
-
 # Make ls use colors to display attributes. BSD convention, uses builtin defaults for LSCOLORS.
 export CLICOLOR=true
 # GNU colour convention.  Added for tree which expects this env var.  Can be used to colour by file ext.
@@ -95,9 +91,6 @@ alias rtags="ripper-tags -R"
 
 # MIT 6.004 simulator; assumes run from the 6004 directory
 alias jsim="java -jar jsim.jar -Xms8m -Xmx32m -reporterrors"
-
-# start ipython which crashes if not in US locale
-alias ipy="~/Projects/ipython/ipython.sh"
 
 # access swift compiler, assume CL tools set to XCode 6 by xcode-select
 alias swift="xcrun swift"
@@ -132,3 +125,5 @@ alias xcodeuuid="/usr/libexec/PlistBuddy -c 'Print DVTPlugInCompatibilityUUID' \
 # added by Miniconda2 4.1.11 installer
 # defaults to 2.7, use source [de]activate python3 to get 3.5
 export PATH="/Users/pjc/miniconda2/bin:$PATH"
+
+alias py3="source activate python3"
