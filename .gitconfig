@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitexcludes
-	editor = vim
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim
 [user]
 	email = peter@crozier.com
 	name = pjc
