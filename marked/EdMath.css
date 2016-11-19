@@ -1,0 +1,6 @@
+body	{ font-family: Helvetica, sans-serif; font-size: 15px; line-height: 21px; }
+h2	{ border-bottom: 1px solid #cccccc; }
+table	{ border-collapse: collapse; }
+td, th	{ border: 1px solid #98BF21; padding: 3px 7px 2px 7px; text-align: left;}
+th	{ text-align: left; color: white; background-color: #A7C942; }
+dt	{ font-weight: bold; }
