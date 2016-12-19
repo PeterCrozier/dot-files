@@ -51,9 +51,8 @@ unset RED BLU GRN RST
 
 # personalise git (avoids changing ~/.gitconfig)
 # only set if not already set, e.g. by ssh
-echo GIT=$GIT_AUTHOR_NAME
-: ${GIT_AUTHOR_NAME:="$USER"}
-: ${GIT_AUTHOR_EMAIL:="$USER@$HOSTNAME"}
+: ${GIT_AUTHOR_NAME:=`id -F`}
+: ${GIT_AUTHOR_EMAIL:=`cat ~/.emailaddress`}
 : ${GIT_COMMITTER_NAME:="$GIT_AUTHOR_NAME"}
 : ${GIT_COMMITTER_EMAIL:="$GIT_AUTHOR_EMAIL"}
 export GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL GIT_COMMITTER_NAME GIT_COMMITTER_EMAIL
