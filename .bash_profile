@@ -1,5 +1,6 @@
 #
-# MacOS runs .bash_profile for each new terminal window/tab and .bashrc only for running bash interactively
+# MacOS runs .bash_profile for each new terminal window/tab (unlike Linux which runs it for login shells only).
+# It runs .bashrc (and not .bash_profile) only when running bash interactively.
 #
 # Return the current git branch, if any
 # Must be exported as it is used in PS1.
@@ -17,6 +18,7 @@ function dash()
 	open "dash://$*"
 }
 export -f dash
+
 
 # console escape sequences must be included in \[ and \] to avoid moving the cursor
 RED="\[$(tput setaf 1)\]"
@@ -46,6 +48,15 @@ fi
 
 # no longer need these and this script is sourced
 unset RED BLU GRN RST
+
+# personalise git (avoids changing ~/.gitconfig)
+# only set if not already set, e.g. by ssh
+echo GIT=$GIT_AUTHOR_NAME
+: ${GIT_AUTHOR_NAME:="$USER"}
+: ${GIT_AUTHOR_EMAIL:="$USER@$HOSTNAME"}
+: ${GIT_COMMITTER_NAME:="$GIT_AUTHOR_NAME"}
+: ${GIT_COMMITTER_EMAIL:="$GIT_AUTHOR_EMAIL"}
+export GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL GIT_COMMITTER_NAME GIT_COMMITTER_EMAIL
 
 # Make ls use colors to display attributes. BSD convention, uses builtin defaults for LSCOLORS.
 export CLICOLOR=true
@@ -144,10 +155,10 @@ export CDPATH=".:..:~/Projects"
 
 # added by Miniconda2 4.1.11 installer
 # as installed: defaults to 2.7, use source [de]activate python3 to get 3.5
-#export PATH="/Users/pjc/miniconda2/bin:$PATH"
+#export PATH="$HOME/miniconda2/bin:$PATH"
 #alias py3="source activate python3"
 # Updated to use python3 by default, use source activate root to get python 2.7
-export PATH="/Users/pjc/miniconda2/envs/python3/bin:$PATH"
+export PATH="$HOME/miniconda2/envs/python3/bin:$PATH"
 
 # Enable ruby version manager, pollutes env with functions, must be last thing to change $PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
