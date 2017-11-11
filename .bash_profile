@@ -82,7 +82,7 @@ alias gsu="git status --untracked-files=no"
 # commit log showing files and summary of changes, including name changes
 alias glog='git log --pretty=format:"[%h] %ae, %ar: %s" --stat --follow'
 # GUI diff with last commit
-alias gdiff="git difftool --noprompt --extcmd='$GUI_EDITOR -f -d'"
+alias gdiff="git difftool --no-prompt --extcmd='$GUI_EDITOR -f -d'"
 # show location of the current repo
 alias grepo="git rev-parse --show-toplevel"
 
@@ -112,7 +112,7 @@ alias lsreregister="lsregister -kill -r -f -all system,local,user"
 alias jsim="java -jar jsim.jar -Xms8m -Xmx32m -reporterrors"
 
 # access swift compiler, assume CL tools set to XCode 6 by xcode-select
-alias swift="xcrun swift"
+# alias swift="xcrun swift"
 
 # tail the syslog
 alias con="tail -f -30 /var/log/system.log"
@@ -153,11 +153,14 @@ alias pl2bin="plutil -convert binary1"
 export CDPATH=".:..:~/Projects"
 
 # added by Miniconda2 4.1.11 installer
-# as installed: defaults to 2.7, use source [de]activate python3 to get 3.5
+# as installed: defaults to 2.7, use source [de]activate python36 to get 3.6
 #export PATH="$HOME/miniconda2/bin:$PATH"
-#alias py3="source activate python3"
+alias py3="source activate python36"
 # Updated to use python3 by default, use source activate root to get python 2.7
-export PATH="$HOME/miniconda2/envs/python3/bin:$PATH"
+export PATH="$HOME/miniconda2/envs/python36/bin:$PATH"
+# remove anaconda python from path leaving Apple system version
+# uses script in /usr/local/bin/pysys
+alias pysys="source pysys"
 
 # Enable ruby version manager, pollutes env with functions, must be last thing to change $PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
