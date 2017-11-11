@@ -6,5 +6,19 @@ ColumnLimit:     0
 IndentWidth:     8
 UseTab:          Always
 BreakBeforeTernaryOperators: false
-BreakBeforeBraces: Linux
+AlignTrailingComments: true
+BreakBeforeBraces: Custom
+BraceWrapping:   
+  AfterClass:      false
+  AfterControlStatement: false
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  false
+  AfterObjCDeclaration: false
+  AfterStruct:     false
+  AfterUnion:      false
+  BeforeCatch:     true
+  BeforeElse:      true
+  IndentBraces:    false
+Standard:        Cpp11
 ...
