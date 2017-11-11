@@ -1,6 +1,5 @@
-/* body	{ font-family: Helvetica, sans-serif; font-size: 15px; line-height: 21px; } */
 body {
-    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    font: 13px / 1.4 Helvetica, arial, sans-serif;
     color: #333;
     background-color: #fff
 }
@@ -9,7 +8,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px;
     line-height: 1.1;
 }
-/*h1	{ font-size: 30px; } */
 h1 {
     padding-bottom: .3em;
     font-size: 2.25em;
@@ -33,4 +31,11 @@ dt	{ font-weight: bold; }
     -webkit-border-radius: 3px;
     border: solid 1px #dddddd !important;
     color: #333
+}
+
+a.wiki:link { color: Orange; }
+a[href^="http://"]:after, 
+a[href^="https://"]:after {
+  content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+  margin: 0 0 0 3px;
 }
