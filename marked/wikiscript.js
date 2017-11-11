@@ -16,5 +16,5 @@
 			t = hr.slice(1);
 		}
 		var t2 = t.replace(/’/g, "%27");
-		$(this).replaceWith('<a href="https://en.wikipedia.org/wiki/' + t2 + '">' + t0 + '</a>');
+		$(this).replaceWith('<a class="wiki" href="https://en.wikipedia.org/wiki/' + t2 + '">' + t0 + '</a>');
 	});
