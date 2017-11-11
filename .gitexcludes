@@ -13,11 +13,12 @@ build/
 *.pbxuser
 *.xcodeproj/project.xcworkspace/
 *.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
 mogen/
 
 # Cocoapods
+# always commit Podfile.lock so we fix the right versions
 Pods/
-Podfile.lock
 
 # MAC OS noise
 .DS_Store
