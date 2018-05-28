@@ -23,3 +23,8 @@ Pods/
 # MAC OS noise
 .DS_Store
 .com.apple.*
+# debug symbols
+*.dSYM
+
+# FPGA temp files
+gendir/
