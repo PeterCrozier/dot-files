@@ -130,10 +130,15 @@ alias httpserver="python -m SimpleHTTPServer 8000"
 alias arduino="/Applications/Arduino.app/Contents/MacOS/Arduino"
 
 # equivalent of Linux command
-alias lsusb="system_profiler SPUSBDataType"
+# add -l for more detail
+alias lsusb="ioreg -p IOUSB -w0 -x"
+alias lsusbx="system_profiler SPUSBDataType"
 
 # manage/list xcode simulators
 alias simctl="xcrun simctl"
+
+# self sign unsigned apps
+alias selfsign="codesign -f --deep -s SelfSignForUnsignedApps "
 
 # Xcode UUID of current Xcode.app
 alias xcodeuuid="/usr/libexec/PlistBuddy -c 'Print DVTPlugInCompatibilityUUID' \"$(xcode-select -p)/../Info.plist\""
